@@ -1,21 +1,30 @@
-import type { ComponentProps } from "react";
-import { Children, isValidElement } from "react";
-import type { MDXComponents } from "mdx/types";
-import { MdxImage } from "@/components/mdx-image";
+import type { MDXComponents } from 'mdx/types'
+import type { ComponentProps, ReactNode } from 'react'
+import { isValidElement } from 'react'
 
-type MarkdownImageProps = ComponentProps<"img">;
+import { MdxImage } from '@/components/mdx-image'
 
-function isImageParagraphChild(child: React.ReactNode) {
+type MarkdownImageProps = ComponentProps<'img'>
+
+function getMeaningfulChildren(children: ReactNode) {
+  const childNodes = Array.isArray(children) ? children : [children]
+
+  return childNodes.filter((child) => {
+    return !(typeof child === 'string' && child.trim() === '')
+  })
+}
+
+function isImageParagraphChild(child: ReactNode) {
   if (!isValidElement(child)) {
-    return false;
+    return false
   }
 
-  if (child.type === "img") {
-    return true;
+  if (child.type === 'img') {
+    return true
   }
 
-  const props = child.props as { src?: unknown };
-  return typeof props.src === "string";
+  const props = child.props as { src?: unknown }
+  return typeof props.src === 'string'
 }
 
 export function getMDXComponents(components: MDXComponents = {}): MDXComponents {
@@ -23,18 +32,16 @@ export function getMDXComponents(components: MDXComponents = {}): MDXComponents 
     h1: ({ children }) => <h1 className="mdx-h1">{children}</h1>,
     h2: ({ children }) => <h2 className="mdx-h2">{children}</h2>,
     p: ({ children }) => {
-      const childNodes = Children.toArray(children).filter((child) => {
-        return !(typeof child === "string" && child.trim() === "");
-      });
-      const isImageOnlyParagraph =
-        childNodes.length === 1 &&
-        isImageParagraphChild(childNodes[0]);
+      const childNodes = getMeaningfulChildren(children)
+      const isImageOnlyParagraph
+        = childNodes.length === 1
+          && isImageParagraphChild(childNodes[0])
 
       if (isImageOnlyParagraph) {
-        return <>{children}</>;
+        return <>{children}</>
       }
 
-      return <p className="mdx-p">{children}</p>;
+      return <p className="mdx-p">{children}</p>
     },
     ul: ({ children }) => <ul className="mdx-ul">{children}</ul>,
     ol: ({ children }) => <ol className="mdx-ol">{children}</ol>,
@@ -47,16 +54,16 @@ export function getMDXComponents(components: MDXComponents = {}): MDXComponents 
       </a>
     ),
     img: ({ src, alt }: MarkdownImageProps) => {
-      if (!src || typeof src !== "string") {
-        return null;
+      if (!src || typeof src !== 'string') {
+        return null
       }
 
-      return <MdxImage src={src} alt={alt} />;
+      return <MdxImage src={src} alt={alt} />
     },
     ...components,
-  };
+  }
 }
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
-  return getMDXComponents(components);
+  return getMDXComponents(components)
 }

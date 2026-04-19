@@ -1,11 +1,14 @@
 ---
+
 title: "Frontmatter 使用示例"
 date: "2026-04-18"
 summary: "一篇带有 Frontmatter 的示例文章，展示首页摘要与详情页元信息是如何生成的。"
 tags:
-  - YAML
-  - MDX
-  - Content
+
+- YAML
+- MDX
+- Content
+
 ---
 
 # Frontmatter 使用示例
@@ -14,9 +17,9 @@ tags:
 
 ```yaml
 ---
-title: "文章标题"
-date: "2026-04-18"
-summary: "文章摘要"
+title: 文章标题
+date: 2026-04-18
+summary: 文章摘要
 tags:
   - YAML
   - Content

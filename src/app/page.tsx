@@ -1,8 +1,9 @@
-import Link from "next/link";
-import { getAllPosts } from "@/lib/posts";
+import Link from 'next/link'
+
+import { getAllPosts } from '@/lib/posts'
 
 export default function Home() {
-  const posts = getAllPosts();
+  const posts = getAllPosts()
 
   return (
     <main className="page-shell">
@@ -15,7 +16,7 @@ export default function Home() {
       </section>
 
       <section className="post-list">
-        {posts.map((post) => (
+        {posts.map(post => (
           <article className="post-card" key={post.slug}>
             <p className="card-date">{post.date}</p>
             <h2 className="card-title">
@@ -24,18 +25,20 @@ export default function Home() {
               </Link>
             </h2>
             <p className="card-summary">{post.summary}</p>
-            {post.tags?.length ? (
-              <div className="tag-row">
-                {post.tags.map((tag) => (
-                  <span className="tag" key={tag}>
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            ) : null}
+            {post.tags?.length
+              ? (
+                  <div className="tag-row">
+                    {post.tags.map(tag => (
+                      <span className="tag" key={tag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )
+              : null}
           </article>
         ))}
       </section>
     </main>
-  );
+  )
 }

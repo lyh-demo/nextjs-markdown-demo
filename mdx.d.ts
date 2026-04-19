@@ -1,13 +1,13 @@
-declare module "*.md" {
-  import type { ComponentType } from "react";
+declare module '*.md' {
+  import type { ComponentType } from 'react'
 
-  const MDXContent: ComponentType;
-  export default MDXContent;
+  const MDXContent: ComponentType
+  export default MDXContent
 }
 
-declare module "*.mdx" {
-  import type { ComponentType } from "react";
+declare module '*.mdx' {
+  import type { ComponentType } from 'react'
 
-  const MDXContent: ComponentType;
-  export default MDXContent;
+  const MDXContent: ComponentType
+  export default MDXContent
 }

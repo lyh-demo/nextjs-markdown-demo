@@ -1,12 +1,15 @@
 ---
+
 title: "使用 Next.js 渲染 Markdown"
 date: "2026-04-19"
 summary: "从零开始搭一个支持 markdown、图片和 Frontmatter 的 Next.js 内容站点。"
 coverImage: "/images/fe6eb2a1f488026cb3c12585d6c83444.jpg"
 tags:
-  - Next.js
-  - Markdown
-  - Frontmatter
+
+- Next.js
+- Markdown
+- Frontmatter
+
 ---
 
 # 使用 Next.js 渲染 Markdown
