@@ -60,7 +60,7 @@ export function MdxImage({ alt, src }: MdxImageProps) {
   return (
     <figure className="mt-7 mb-4 flex flex-col items-center">
       <Image
-        className={`block h-auto max-w-full rounded-[22px] border border-(--border) bg-white ${
+        className={`block h-auto max-w-full rounded-[22px] border border-(--border) bg-(--background-strong) ${
           isRemote ? 'max-h-[min(70vh,960px)] w-auto' : 'w-full'
         }`}
         src={src}
@@ -71,7 +71,7 @@ export function MdxImage({ alt, src }: MdxImageProps) {
         unoptimized={isRemote}
       />
       {alt
-        ? <figcaption className="mt-2.5 text-center text-[0.92rem] text-[rgba(30,27,24,0.7)]">{alt}</figcaption>
+        ? <figcaption className="mt-2.5 text-center text-[0.92rem] text-(--foreground-muted)">{alt}</figcaption>
         : null}
     </figure>
   )

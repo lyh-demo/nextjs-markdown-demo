@@ -45,18 +45,18 @@ export function getMDXComponents(components: MDXComponents = {}): MDXComponents 
         return <>{children}</>
       }
 
-      return <p className="mb-4 text-[1.02rem] leading-8 text-[rgba(30,27,24,0.9)]">{children}</p>
+      return <p className="mb-4 text-[1.02rem] leading-8 text-(--foreground-rich)">{children}</p>
     },
     ul: ({ children }) => <ul className="mb-4 list-disc pl-6 text-[1.02rem] leading-8">{children}</ul>,
     ol: ({ children }) => <ol className="mb-4 list-decimal pl-6 text-[1.02rem] leading-8">{children}</ol>,
-    li: ({ children }) => <li className="text-[1.02rem] leading-8 text-[rgba(30,27,24,0.9)]">{children}</li>,
+    li: ({ children }) => <li className="text-[1.02rem] leading-8 text-(--foreground-rich)">{children}</li>,
     code: ({ children }) => (
       <code className="rounded-lg bg-(--accent-soft) px-1.5 py-0.5 font-mono text-[0.95em]">
         {children}
       </code>
     ),
     pre: ({ children }) => (
-      <pre className="mb-4 overflow-x-auto rounded-[18px] bg-[#201a16] p-4.5 text-[#fff7ed]">
+      <pre className="mb-4 overflow-x-auto rounded-[18px] bg-(--code-background) p-4.5 text-(--code-foreground)">
         {children}
       </pre>
     ),

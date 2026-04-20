@@ -4,17 +4,108 @@
   --background: #f6f0e5;
   --background-strong: #fbf7ef;
   --foreground: #1e1b18;
+  --foreground-soft: rgba(30, 27, 24, 0.82);
+  --foreground-muted: rgba(30, 27, 24, 0.72);
+  --foreground-rich: rgba(30, 27, 24, 0.9);
   --card: rgba(255, 252, 246, 0.88);
   --card-soft: rgba(255, 251, 245, 0.78);
   --border: rgba(62, 44, 31, 0.16);
   --accent: #9a3412;
   --accent-soft: rgba(154, 52, 18, 0.1);
+  --accent-border: rgba(154, 52, 18, 0.16);
+  --accent-border-strong: rgba(154, 52, 18, 0.28);
+  --accent-surface: rgba(154, 52, 18, 0.08);
+  --accent-surface-strong: rgba(154, 52, 18, 0.14);
   --shadow: 0 24px 80px rgba(55, 37, 24, 0.08);
+  --avatar-border: rgba(154, 52, 18, 0.14);
+  --avatar-background: #fff7ed;
+  --avatar-shadow: 0 14px 30px rgba(55, 37, 24, 0.12);
+  --interactive-shadow: 0 18px 40px rgba(55, 37, 24, 0.08);
+  --code-background: #201a16;
+  --code-foreground: #fff7ed;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #130f0d;
+    --background-strong: #1b1613;
+    --foreground: #f5ede4;
+    --foreground-soft: rgba(245, 237, 228, 0.82);
+    --foreground-muted: rgba(245, 237, 228, 0.72);
+    --foreground-rich: rgba(245, 237, 228, 0.9);
+    --card: rgba(38, 29, 24, 0.82);
+    --card-soft: rgba(30, 23, 19, 0.78);
+    --border: rgba(255, 222, 197, 0.14);
+    --accent: #f2a35d;
+    --accent-soft: rgba(242, 163, 93, 0.14);
+    --accent-border: rgba(242, 163, 93, 0.26);
+    --accent-border-strong: rgba(242, 163, 93, 0.42);
+    --accent-surface: rgba(242, 163, 93, 0.12);
+    --accent-surface-strong: rgba(242, 163, 93, 0.18);
+    --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+    --avatar-border: rgba(242, 163, 93, 0.24);
+    --avatar-background: #2b211c;
+    --avatar-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+    --interactive-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+    --code-background: #0f0b09;
+    --code-foreground: #fdf3e6;
+  }
+}
+
+html[data-theme="light"] {
+  --background: #f6f0e5;
+  --background-strong: #fbf7ef;
+  --foreground: #1e1b18;
+  --foreground-soft: rgba(30, 27, 24, 0.82);
+  --foreground-muted: rgba(30, 27, 24, 0.72);
+  --foreground-rich: rgba(30, 27, 24, 0.9);
+  --card: rgba(255, 252, 246, 0.88);
+  --card-soft: rgba(255, 251, 245, 0.78);
+  --border: rgba(62, 44, 31, 0.16);
+  --accent: #9a3412;
+  --accent-soft: rgba(154, 52, 18, 0.1);
+  --accent-border: rgba(154, 52, 18, 0.16);
+  --accent-border-strong: rgba(154, 52, 18, 0.28);
+  --accent-surface: rgba(154, 52, 18, 0.08);
+  --accent-surface-strong: rgba(154, 52, 18, 0.14);
+  --shadow: 0 24px 80px rgba(55, 37, 24, 0.08);
+  --avatar-border: rgba(154, 52, 18, 0.14);
+  --avatar-background: #fff7ed;
+  --avatar-shadow: 0 14px 30px rgba(55, 37, 24, 0.12);
+  --interactive-shadow: 0 18px 40px rgba(55, 37, 24, 0.08);
+  --code-background: #201a16;
+  --code-foreground: #fff7ed;
+}
+
+html[data-theme="dark"] {
+  --background: #130f0d;
+  --background-strong: #1b1613;
+  --foreground: #f5ede4;
+  --foreground-soft: rgba(245, 237, 228, 0.82);
+  --foreground-muted: rgba(245, 237, 228, 0.72);
+  --foreground-rich: rgba(245, 237, 228, 0.9);
+  --card: rgba(38, 29, 24, 0.82);
+  --card-soft: rgba(30, 23, 19, 0.78);
+  --border: rgba(255, 222, 197, 0.14);
+  --accent: #f2a35d;
+  --accent-soft: rgba(242, 163, 93, 0.14);
+  --accent-border: rgba(242, 163, 93, 0.26);
+  --accent-border-strong: rgba(242, 163, 93, 0.42);
+  --accent-surface: rgba(242, 163, 93, 0.12);
+  --accent-surface-strong: rgba(242, 163, 93, 0.18);
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+  --avatar-border: rgba(242, 163, 93, 0.24);
+  --avatar-background: #2b211c;
+  --avatar-shadow: 0 14px 30px rgba(0, 0, 0, 0.32);
+  --interactive-shadow: 0 18px 40px rgba(0, 0, 0, 0.24);
+  --code-background: #0f0b09;
+  --code-foreground: #fdf3e6;
 }
 
 @layer base {
   html {
     overflow-x: hidden;
+    color-scheme: light dark;
   }
 
   body {
@@ -28,6 +119,10 @@
       "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition:
+      color 180ms ease,
+      background-color 180ms ease,
+      border-color 180ms ease;
   }
 
   a {

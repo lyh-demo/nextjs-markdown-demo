@@ -51,7 +51,7 @@ export default async function PostPage({ params }: PostPageProps) {
           <h1 className="text-[clamp(2rem,4vw,3.6rem)] leading-none font-semibold tracking-[-0.04em]">
             {post.frontmatter.title}
           </h1>
-          <div className="mt-4 flex flex-wrap items-center gap-x-3.5 gap-y-2.5 text-[0.92rem] text-[rgba(30,27,24,0.72)]">
+          <div className="mt-4 flex flex-wrap items-center gap-x-3.5 gap-y-2.5 text-[0.92rem] text-(--foreground-muted)">
             <time dateTime={post.frontmatter.date}>{post.frontmatter.date}</time>
             {post.frontmatter.tags?.length
               ? (
@@ -65,7 +65,7 @@ export default async function PostPage({ params }: PostPageProps) {
           </div>
           {post.frontmatter.summary
             ? (
-                <p className="mt-4.5 max-w-[62ch] text-[1.02rem] leading-8 text-[rgba(30,27,24,0.82)]">
+                <p className="mt-4.5 max-w-[62ch] text-[1.02rem] leading-8 text-(--foreground-soft)">
                   {post.frontmatter.summary}
                 </p>
               )

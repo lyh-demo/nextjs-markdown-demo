@@ -17,7 +17,7 @@ export default function Home() {
       >
         <div className="flex items-start gap-5 max-sm:flex-col sm:items-center">
           <Image
-            className="size-28 rounded-full border border-[rgba(154,52,18,0.14)] bg-orange-50 object-cover shadow-[0_14px_30px_rgba(55,37,24,0.12)]"
+            className="size-28 rounded-full border border-(--avatar-border) bg-(--avatar-background) object-cover shadow-[var(--avatar-shadow)]"
             src="https://avatars.githubusercontent.com/u/171144077?v=4"
             alt="avatar"
             width={112}
@@ -28,7 +28,7 @@ export default function Home() {
           <div className="min-w-[min(100%,280px)]">
             <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-(--accent)">LiuYuhe Blog</p>
             <h1 className="text-[clamp(2rem,4vw,3.6rem)] leading-none font-semibold tracking-[-0.04em]">Tenifs</h1>
-            <p className="mt-4 max-w-[62ch] text-[1.02rem] leading-8 text-[rgba(30,27,24,0.82)]">
+            <p className="mt-4 max-w-[62ch] text-[1.02rem] leading-8 text-(--foreground-soft)">
               微信公众号：爱编程的阿彬
             </p>
           </div>
@@ -44,17 +44,17 @@ export default function Home() {
         {posts.map(post => (
           <CardSurface
             as="article"
-            className="rounded-3xl p-5 transition hover:-translate-y-0.5 hover:border-[rgba(154,52,18,0.28)] hover:shadow-[0_18px_40px_rgba(55,37,24,0.08)] sm:p-6"
+            className="rounded-3xl p-5 transition hover:-translate-y-0.5 hover:border-(--accent-border-strong) hover:shadow-[var(--interactive-shadow)] sm:p-6"
             key={post.slug}
             variant="soft"
           >
-            <p className="text-[0.92rem] text-[rgba(30,27,24,0.72)]">{post.date}</p>
+            <p className="text-[0.92rem] text-(--foreground-muted)">{post.date}</p>
             <h2 className="my-2.5 text-2xl leading-tight font-semibold">
               <Link className="transition hover:text-(--accent)" href={`/posts/${post.slug}`}>
                 {post.title}
               </Link>
             </h2>
-            <p className="mb-3.5 text-base leading-7 text-[rgba(30,27,24,0.84)]">{post.summary}</p>
+            <p className="mb-3.5 text-base leading-7 text-(--foreground-soft)">{post.summary}</p>
             {post.tags?.length
               ? (
                   <div className="flex flex-wrap gap-2.5">

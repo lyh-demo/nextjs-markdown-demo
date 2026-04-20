@@ -4,7 +4,7 @@ type PillTagProps = ComponentPropsWithoutRef<'span'>
 
 export function PillTag({ children, className, ...props }: PillTagProps) {
   const composedClassName = [
-    'inline-flex items-center rounded-full border border-[rgba(154,52,18,0.18)] bg-[rgba(154,52,18,0.08)] px-3 py-1 text-[0.84rem] text-(--accent)',
+    'inline-flex items-center rounded-full border border-(--accent-border) bg-(--accent-surface) px-3 py-1 text-[0.84rem] text-(--accent)',
     className,
   ].filter(Boolean).join(' ')
 
