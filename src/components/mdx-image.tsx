@@ -58,9 +58,11 @@ export function MdxImage({ alt, src }: MdxImageProps) {
   const { height, width } = resolveImageSize(src)
 
   return (
-    <figure className="mdx-figure">
+    <figure className="mt-7 mb-4 flex flex-col items-center">
       <Image
-        className={`mdx-image${isRemote ? ' mdx-image-remote' : ''}`}
+        className={`block h-auto max-w-full rounded-[22px] border border-(--border) bg-white ${
+          isRemote ? 'max-h-[min(70vh,960px)] w-auto' : 'w-full'
+        }`}
         src={src}
         alt={alt ?? ''}
         width={width}
@@ -68,7 +70,9 @@ export function MdxImage({ alt, src }: MdxImageProps) {
         sizes="(max-width: 768px) 100vw, 896px"
         unoptimized={isRemote}
       />
-      {alt ? <figcaption className="mdx-caption">{alt}</figcaption> : null}
+      {alt
+        ? <figcaption className="mt-2.5 text-center text-[0.92rem] text-[rgba(30,27,24,0.7)]">{alt}</figcaption>
+        : null}
     </figure>
   )
 }

@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-markdown-demo",
+  "name": "liuyuhe.cc",
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@10.33.0",
@@ -7,6 +7,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "prepare": "simple-git-hooks && pnpm run build",
     "lint": "eslint",
     "lint:fix": "eslint --fix"
   },
@@ -24,6 +25,7 @@
     "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -32,6 +34,7 @@
     "eslint-config-next": "16.2.4",
     "lint-staged": "^16.4.0",
     "simple-git-hooks": "^2.13.1",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5"
   },
   "simple-git-hooks": {
